@@ -51,6 +51,32 @@ export default function ServiceIcon3D({ iconType }: { iconType: string }) {
       case "ai":
         mesh = new THREE.Mesh(new THREE.IcosahedronGeometry(1, 1), sharedMat(0xa855f7, 0x2a0a5a, { metalness: 0.6, roughness: 0.05, transmission: 0.3, thickness: 0.8 }));
         break;
+      case 'training': {
+        const g = new THREE.ConeGeometry(0.9, 0.4, 4);
+        mesh = new THREE.Mesh(g, sharedMat(0x4d8aff, 0x0a1a4a, { metalness: 0.7, roughness: 0.1 }));
+        mesh.rotation.y = Math.PI / 4;
+        break;
+      }
+      case 'support': {
+        const g = new THREE.SphereGeometry(0.85, 32, 32);
+        mesh = new THREE.Mesh(g, sharedMat(0xc084fc, 0x3a0a6a, { metalness: 0.3, roughness: 0.05, transmission: 0.5, thickness: 0.8 }));
+        break;
+      }
+      case 'recall': {
+        const g = new THREE.TorusGeometry(0.7, 0.25, 16, 64);
+        mesh = new THREE.Mesh(g, sharedMat(0x4d8aff, 0x0a1a4a, { metalness: 0.6, roughness: 0.05, transmission: 0.3, thickness: 0.6 }));
+        break;
+      }
+      case 'ramp': {
+        const group = new THREE.Group();
+        const g = new THREE.CylinderGeometry(0.7, 0.7, 0.2, 32);
+        const m1 = new THREE.Mesh(g, sharedMat(0x4d8aff, 0x0a1a4a, { metalness: 0.6, roughness: 0.1 })); m1.position.y = -0.3;
+        const m2 = new THREE.Mesh(g, sharedMat(0xa855f7, 0x2a0a5a, { metalness: 0.6, roughness: 0.1 })); m2.position.y = 0; m2.scale.set(0.8, 1, 0.8);
+        const m3 = new THREE.Mesh(g, sharedMat(0xc084fc, 0x3a0a6a, { metalness: 0.6, roughness: 0.1 })); m3.position.y = 0.3; m3.scale.set(0.6, 1, 0.6);
+        group.add(m1, m2, m3);
+        mesh = group;
+        break;
+      }
       default:
         mesh = new THREE.Mesh(new THREE.IcosahedronGeometry(0.9, 0), sharedMat(0xa855f7, 0x2a0a5a));
     }

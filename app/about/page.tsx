@@ -6,7 +6,8 @@ export default function AboutPage() {
     <div className="pt-32 px-10 py-24">
       <div className="max-w-[1400px] mx-auto">
         <div className="inline-flex items-center gap-2 text-[11px] text-purple-bright font-mono uppercase tracking-[0.2em] mb-4">
-          <span className="w-6 h-px bg-purple"></span> About Digitalic
+          <span className="inline-block w-6 h-px bg-purple-bright"></span>
+          <span>About Digitalic</span>
         </div>
         <h2 className="font-display text-4xl md:text-5xl font-semibold tracking-tight mb-5 max-w-[900px]">
           Bridging the Divide Between <span className="text-gradient">Innovation and Execution.</span>
