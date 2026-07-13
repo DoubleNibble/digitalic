@@ -1,2 +1,2 @@
 # digitalic
-digitalic website
+digitalic.to website
